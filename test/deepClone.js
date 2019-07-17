@@ -40,5 +40,11 @@ test('input Date', t => {
   let date = new Date();
   let dateCopy = deepClone(date);
   t.false(date === dateCopy);
-  // t.true(date.getTime() === dateCopy.getTime());
-})
+  t.true(date.getTime() === dateCopy.getTime());
+});
+test('input RegExp', t => {
+    let reg = new RegExp(/\w/);
+    let deepCopy = deepClone(reg);
+    t.false(reg === deepCopy);
+    t.true('' + reg === '' + deepCopy)
+});
