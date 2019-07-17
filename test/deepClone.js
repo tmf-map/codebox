@@ -87,7 +87,7 @@ test('input WeakSet', t => {
   ws1.delete(a);
   t.true(ws2.has(a));
 })
-test.cb('input Map', t => {
+test('input Map', t => {
   let m1 = new Map();
   let key = {p: 'Hello World'};
   m1.set(key, 'content');
@@ -97,7 +97,7 @@ test.cb('input Map', t => {
   m1.delete(key);
   t.true(m2.has(key));
 });
-test.cb('input WeakMap', t => {
+test('input WeakMap', t => {
   let wm1 = new WeakMap();
   let key = {p: 'Hello World'};
   wm1.set(key, 'content');
