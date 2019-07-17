@@ -3,9 +3,14 @@ function deepClone(obj) {
   if (typeof obj !== 'object' || obj === null) {
     return obj;
   }
+  const Constructor = obj.constructor;
   // Date
   if (obj instanceof Date) {
-    // ...
+    return new Constructor(obj.getTime());
+  }
+  //RegExp
+  if(obj instanceof RegExp) {
+    return new Constructor(obj);
   }
   // 引用类型
   const keys = Object.keys(obj);
