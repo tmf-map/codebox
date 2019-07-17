@@ -16,7 +16,7 @@ test('input undefined', t => {
 test('input false', t => {
   t.is(deepClone(false), false);
 });
-test('input simple obj', t => {
+test('input simple object', t => {
   let obj = {
     a: 1,
     b: 'string',
@@ -39,7 +39,7 @@ test('input simple obj', t => {
   t.true(obj.und === objCopy.und);
   t.true(obj.nul === objCopy.nul);
 });
-test('input function', t => {
+test.skip('input function', t => {
   let foo1 = () => console.log(1);
   let foo2 = function () {
     console.log(1);
@@ -62,4 +62,48 @@ test('input RegExp', t => {
     let deepCopy = deepClone(reg);
     t.false(reg === deepCopy);
     t.true('' + reg === '' + deepCopy)
+});
+test('input Symbol', t => {
+  let s1 = Symbol();
+  let s2 = deepClone(s1);
+  t.true(s1 === s2);
+})
+test('input Set', t => {
+  let s1 = new Set([1, 2, 3, 4]);
+  let s2 = deepClone(s1);
+  t.false(s1 === s2);
+  t.true(Array.from(s1).toString() === Array.from(s2).toString())
+})
+test('input WeakSet', t => {
+  let a = [1, 2];
+  let b = [3, 4];
+  let ws1 = new WeakSet();
+  ws1.add(a);
+  ws1.add(b);
+  let ws2 = deepClone(ws1);
+  t.false(ws1 === ws2);
+  t.true(ws2.has(a));
+  t.true(ws2.has(b));
+  ws1.delete(a);
+  t.true(ws2.has(a));
+})
+test.cb('input Map', t => {
+  let m1 = new Map();
+  let key = {p: 'Hello World'};
+  m1.set(key, 'content');
+  let m2 = deepClone(m1);
+  t.false(m1 === m2);
+  t.is(m2.get(key), 'content');
+  m1.delete(key);
+  t.true(m2.has(key));
+});
+test.cb('input WeakMap', t => {
+  let wm1 = new WeakMap();
+  let key = {p: 'Hello World'};
+  wm1.set(key, 'content');
+  let wm2 = deepClone(wm1);
+  t.false(wm1 === wm2);
+  t.is(wm2.get(key), 'content');
+  wm1.delete(key);
+  t.true(wm2.has(key));
 });
