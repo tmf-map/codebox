@@ -14,10 +14,12 @@ function deepClone(obj) {
   }
   // 引用类型
   const keys = Object.keys(obj);
+  let objClone = Array.isArray(obj) ? [] : {};
   if (keys.length < 1) {
-    return Array.isArray(obj) ? [] : {};
+    return objClone
   }
-  return keys.map(key => deepClone(obj[key]))
+  keys.map(key => objClone[key] = deepClone(obj[key]));
+  return objClone;
 }
 
 module.exports = deepClone;
