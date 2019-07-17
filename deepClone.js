@@ -18,7 +18,7 @@ function deepClone(obj) {
   if (keys.length < 1) {
     return objClone
   }
-  keys.map(key => objClone[key] = deepClone(obj[key]));
+  keys.forEach(key => objClone[key] = deepClone(obj[key]));
   return objClone;
 }
 
