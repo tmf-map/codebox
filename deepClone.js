@@ -1,5 +1,5 @@
 function deepClone(obj) {
-  // 原始类型，直接返回
+  // Primitive Type
   if (typeof obj !== 'object' || obj === null) {
     return obj;
   }
@@ -21,7 +21,7 @@ function deepClone(obj) {
   // Map
   if(obj instanceof Map) {
     let objClone = new Map();
-    obj.forEach((value,key) => objClone.set(deepClone(key),deepClone(value)));
+    obj.forEach((value, key) => objClone.set(deepClone(key), deepClone(value)));
     return objClone
   }
   // Array Object
