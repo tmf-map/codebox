@@ -12,7 +12,19 @@ function deepClone(obj) {
   if(obj instanceof RegExp) {
     return new Constructor(obj);
   }
-  // 引用类型
+  // Set
+  if(obj instanceof Set) {
+    let objClone = new Set();
+    obj.forEach(item => objClone.add(deepClone(item)));
+    return objClone;
+  }
+  // Map
+  if(obj instanceof Map) {
+    let objClone = new Map();
+    obj.forEach((value,key) => objClone.set(deepClone(key),deepClone(value)));
+    return objClone
+  }
+  // Array Object
   const keys = Object.keys(obj);
   let objClone = Array.isArray(obj) ? [] : {};
   if (keys.length < 1) {
