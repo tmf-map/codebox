@@ -24,9 +24,9 @@ test('input Date', t => {
 });
 test('input RegExp', t => {
     let reg = new RegExp(/\w/);
-    let deepCopy = shallowClone(reg);
-    t.false(reg === deepCopy);
-    t.true('' + reg === '' + deepCopy)
+    let regCopy = shallowClone(reg);
+    t.false(reg === regCopy);
+    t.true('' + reg === '' + regCopy)
 });
 test('input simple Set', t => {
     let s1 = new Set([1, 2, 3, [4,5]]);
