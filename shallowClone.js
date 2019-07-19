@@ -4,6 +4,14 @@ function shallowClone(obj) {
         return obj
     }
 
+    if(obj instanceof Date){
+        return new Date(obj.getTime());
+    }
+
+    if(obj instanceof RegExp){
+        return new RegExp(obj);
+    }
+
     if(obj instanceof Set) {
         let objClone = new Set();
         obj.forEach(item => objClone.add(item));
@@ -24,3 +32,5 @@ function shallowClone(obj) {
     keys.forEach(key => objClone[key] = obj[key]);
     return objClone;
 }
+
+module.exports = shallowClone;
