@@ -5,7 +5,7 @@ function shallowClone(obj) {
     }
 
     if(obj instanceof Date){
-        return new Date(obj.getTime());
+        return new Date(obj);
     }
 
     if(obj instanceof RegExp){
