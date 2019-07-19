@@ -3,14 +3,13 @@ function deepClone(obj) {
   if (typeof obj !== 'object' || obj === null) {
     return obj;
   }
-  const Constructor = obj.constructor;
   // Date
-  if (obj instanceof Date) {
-    return new Constructor(obj.getTime());
+  if(obj instanceof Date){
+    return new Date(obj);
   }
   //RegExp
-  if(obj instanceof RegExp) {
-    return new Constructor(obj);
+  if(obj instanceof RegExp){
+    return new RegExp(obj);
   }
   // Set
   if(obj instanceof Set) {
