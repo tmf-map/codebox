@@ -1,5 +1,5 @@
 import test from 'ava';
-import shallowClone from '../shallowClone'
+import shallowClone from '../src/shallowClone'
 
 test('input string', t => {
     t.is(shallowClone('abc'), 'abc');
