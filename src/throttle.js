@@ -1,6 +1,6 @@
-function throttle(fn, wait, ...args) {
+function throttle(fn, wait) {
     let pre = 0;
-    return function() {
+    return function(...args) {
         const now = Date.now();
         if(now - pre >= wait) {
             pre = now;
@@ -8,3 +8,5 @@ function throttle(fn, wait, ...args) {
         }
     }
 }
+
+module.exports = throttle;

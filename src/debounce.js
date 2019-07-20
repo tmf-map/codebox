@@ -1,7 +1,9 @@
-function debounce(fn, wait, ...args) {
+function debounce(fn, wait) {
     let timeout;
-    return function() {
+    return function(...args) {
         clearTimeout(timeout);
-        timeout = setTimeout(()=>{ fn.apply(this, args) }, wait)
+        timeout = setTimeout(() => { fn.apply(this, args) }, wait);
     }
 }
+
+module.exports = debounce;
