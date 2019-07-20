@@ -6,11 +6,11 @@
 
 * [x] deepClone
 * [x] shallowClone
+* [x] debounce
+* [x] throttle
 * [ ] equals
 * [ ] shallowEqual
 * [ ] shallowFroze
-* [ ] debounce
-* [ ] throttle
 * [ ] memoize
 * [ ] getType
 * [ ] isTypeOf
