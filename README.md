@@ -22,3 +22,5 @@
 * [ ] sleep
 * [ ] unique
 * [ ] uniqueBy
+* [ ] applyMiddleware
+* [ ] compose
