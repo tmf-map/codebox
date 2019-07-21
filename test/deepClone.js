@@ -1,5 +1,5 @@
 import test from 'ava';
-import deepClone from '../deepClone'
+import deepClone from '../src/deepClone'
 
 test('input string', t => {
   t.is(deepClone('abc'), 'abc');

@@ -1,5 +1,5 @@
 import test from 'ava';
-import shallowClone from '../shallowClone'
+import shallowClone from '../src/shallowClone'
 
 test('input string', t => {
     t.is(shallowClone('abc'), 'abc');
@@ -36,7 +36,7 @@ test('input simple Set', t => {
     s2.delete(1);
     t.true(s1.size === s2.size + 1);
 });
-test('input  Set', t => {
+test('input Set', t => {
     let s1 = new Set([{a: 10}]);
     let s2 = shallowClone(s1);
     t.false(s1 === s2);
