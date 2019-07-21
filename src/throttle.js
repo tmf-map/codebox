@@ -1,8 +1,8 @@
 function throttle(fn, wait) {
-    let pre = 0;
+    let pre;
     return function(...args) {
         const now = Date.now();
-        if(now - pre >= wait) {
+        if(!pre || now - pre >= wait) {
             pre = now;
             fn.apply(this, args);
         }
