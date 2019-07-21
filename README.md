@@ -1,6 +1,7 @@
 # codebox
 
-[![Build Status](https://img.shields.io/travis/ThinkBucket/codebox/master.svg?style=flat-square)](https://travis-ci.org/ThinkBucket/codebox)
+[![Build Status](https://travis-ci.org/ThinkBucket/codebox.svg?branch=master)](https://travis-ci.org/ThinkBucket/codebox)
+[![codecov](https://codecov.io/gh/ThinkBucket/codebox/branch/master/graph/badge.svg)](https://codecov.io/gh/ThinkBucket/codebox)
 
 > Get inside to some functions you'd better to know.
 
