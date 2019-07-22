@@ -9,7 +9,7 @@
 * [x] shallowClone
 * [x] debounce
 * [x] throttle
-* [ ] equals
+* [x] deepEqual
 * [ ] shallowEqual
 * [ ] shallowFroze
 * [ ] memoize
