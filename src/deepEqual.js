@@ -11,7 +11,7 @@ function deepEqual(a, b) {
     if (a.__proto__ !== b.__proto__) return false;
     if (a instanceof RegExp) return '' + a === '' + b;
     if (a instanceof Date) return +a === +b;
-    if (value instanceof Set || value instanceof Map) return deepEqual([...a], [...b]);
+    if (a instanceof Set || a instanceof Map) return deepEqual([...a], [...b]);
     
     // 先看看a, b的大小，不一样也没必要比了
     const keys = Object.keys(a);
@@ -23,3 +23,5 @@ function deepEqual(a, b) {
     // 对其属性再进行递归比较
     return keys.every(k => deepEqual(a[k], b[k]));
 }
+
+module.exports = deepEqual;
