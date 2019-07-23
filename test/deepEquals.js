@@ -22,9 +22,13 @@ test('Bool', t => {
     t.true(deepEqual(false, false));
     t.false(deepEqual(false, true));
 });
+test('Symbol', t => {
+    t.true(deepEqual(Symbol.for('test'), Symbol.for('test')));
+    t.false(deepEqual(Symbol('test'), Symbol('test')));
+});
 test('Date', t => {
     const a = new Date();
-    const b = new Date();
+    const b = new Date(+a);
     const c = new Date(+a + 1000);
     t.true(deepEqual(a, b));
     t.false(deepEqual(a, c));
