@@ -9,6 +9,10 @@ test('Number', t => {
     t.true(deepEqual(100, 100));
     t.false(deepEqual(12, 1));
 });
+test('NaN', t => {
+    t.true(deepEqual(NaN, NaN));
+    t.false(deepEqual(NaN, 1));
+});
 test('null', t => {
     t.false(deepEqual(null, {}));
     t.true(deepEqual(null, null));
