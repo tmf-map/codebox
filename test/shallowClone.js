@@ -1,6 +1,5 @@
 import test from 'ava';
 import shallowClone from '../src/shallowClone'
-import deepClone from "../src/deepClone";
 
 test('input string', t => {
     t.is(shallowClone('abc'), 'abc');
@@ -19,7 +18,7 @@ test('input false', t => {
 });
 test('input Symbol', t => {
     const symbol = Symbol('test');
-    t.is(deepClone(symbol), symbol);
+    t.is(shallowClone(symbol), symbol);
 });
 test('input Date', t => {
     let date = new Date();
