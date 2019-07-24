@@ -1,4 +1,4 @@
-function get(obj, path) {
+function get(obj, path, def) {
     while(path.length) {
         // path支持数组和字符串，将字符传转为数组
         if(!Array.isArray(path)) {
@@ -29,5 +29,5 @@ function get(obj, path) {
             path = path.slice(1);
         }
     }
-    return obj;
+    return obj === undefined ? def : obj;
 }

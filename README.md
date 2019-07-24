@@ -15,7 +15,7 @@
 * [ ] memoize
 * [ ] getType
 * [ ] isTypeOf
-* [ ] get
+* [x] get
 * [ ] new
 * [ ] Promise.all
 * [ ] Promise.race
