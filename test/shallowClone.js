@@ -16,6 +16,10 @@ test('input undefined', t => {
 test('input false', t => {
     t.is(shallowClone(false), false);
 });
+test('input Symbol', t => {
+    const symbol = Symbol('test');
+    t.is(shallowClone(symbol), symbol);
+});
 test('input Date', t => {
     let date = new Date();
     let dateCopy = shallowClone(date);
