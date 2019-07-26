@@ -14,6 +14,7 @@ function shallowEqual (a, b) {
     if (a instanceof RegExp) return '' + a === '' + b;
     if (a instanceof Set) return shallowEqual([...a], [...b]);
     if (a instanceof Map) {
+      if(a.size !== b.size) return false;
       for (let key of a.keys()) {
         if (a.get(key) !== b.get(key)) return false
       }
@@ -29,4 +30,4 @@ function shallowEqual (a, b) {
     return aKeys.every(k => a[k] === b[k]);
 }
 
-module.exports = shallowEqual
+module.exports = shallowEqual;
