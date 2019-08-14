@@ -1,15 +1,17 @@
-function get(path, obj) {
+function getOr(def, path, obj) {
     while(path.length) {
         // path支持数组和字符串，将字符串转为数组
         if(!Array.isArray(path)) {
             path = path.split('.');
         }
-        // 判断路径的第一个元素种类： 'a[1]','a'
+
+        // 判断路径的数组首个元素种类： 'a[1]','a'
         const pathValue = path[0].slice(0,1);
         let index = pathValue.search(/[\d]/);
+
         // 对象中元素值为数组
         if(Array.isArray(obj[pathValue])) {
-            // 'a[0].b.c'
+            // 'a[0].b.c'上面已经转为['a[0]', 'b', 'c']
             if(index !== -1) {
                 path = path.slice(1)
             }else{
@@ -29,5 +31,6 @@ function get(path, obj) {
             path = path.slice(1);
         }
     }
-    return obj
+    // 当obj最终是undefined的时候，返回默认参数
+    return obj === undefined ? def : obj
 }
