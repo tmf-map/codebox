@@ -10,12 +10,13 @@
 * [x] debounce
 * [x] throttle
 * [x] deepEqual
+* [x] get
+* [x] getOr
 * [ ] shallowEqual
 * [ ] shallowFroze
 * [ ] memoize
 * [ ] getType
 * [ ] isTypeOf
-* [x] get
 * [ ] new
 * [ ] Promise.all
 * [ ] Promise.race
