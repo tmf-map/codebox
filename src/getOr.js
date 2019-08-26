@@ -1,7 +1,7 @@
 const get = require('./get');
 
-function getOr(def, path, obj) {
-    const getResult = get(path, obj);
+function getOr(def, path, data) {
+    const getResult = get(path, data);
     return getResult === undefined ? def : getResult;
 }
 

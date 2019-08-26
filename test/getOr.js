@@ -28,9 +28,12 @@ test('an irregular object', t => {
     let obj = ['a'];
     t.is(getOr(false,'arr.b.c', null), false);
     t.is(getOr('defaultValue','arr.b.c', undefined), 'defaultValue');
-
     t.is(getOr(obj,'a', obj), obj);
+});
 
+test('object contains null value', t => {
+    let data = { 'a': [{ 'b': { 'c': 3 , 'd': null} }] };
+    t.is(getOr('default','a[0].b.d', data), null);
 });
 
 test('a irregular path and object ', t => {
