@@ -9,12 +9,12 @@ function get(path, obj) {
         return;
     }
 
-    while(path.length && obj) {
-            // path支持数组和字符串，如果是字符串类型将字符串转为数组
-            if (!Array.isArray(path)) {
-                path = path.split('.');
-            }
+    // path支持数组和字符串，如果是字符串类型将字符串转为数组
+    if (!Array.isArray(path)) {
+        path = path.split('.');
+    }
 
+    while(path.length && obj) {
             // 取数组头元素可能是 'str[1]'或者'str'
             const headElement = path[0];
             const pathValue = headElement.split('[')[0];
