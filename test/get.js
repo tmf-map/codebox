@@ -21,6 +21,8 @@ test('an irregular path', t => {
     t.is(get(null, object), undefined);
     t.is(get(undefined, object), undefined);
     t.is(get('', object), undefined);
+    t.is(get([], object), undefined);
+    t.is(get('[]', object), undefined);
 });
 
 test('an irregular object', t => {

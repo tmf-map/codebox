@@ -1,16 +1,18 @@
 function get (path, data) {
     if (typeof data !== 'object' || data === null) {
-        return
+        return;
+    }
+    if (!path || !path.length) {
+        return;
     }
     if (Array.isArray(path)) {
-        path = path.join('.')
+        return path.reduce((prev, cur) => prev && prev[cur], data);
     }
-    if (typeof path === 'string' && path.length) {
+    if (typeof path === 'string') {
         return path
-            .replace(/\[([^\[\]]*)]/g, '.$1.')
+            .replace(/\[([^\[\]]*)]/g, '.$1')
             .split('.')
-            .filter(t => t !== '')
-            .reduce((prev, cur) => prev && prev[cur], data)
+            .reduce((prev, cur) => prev && prev[cur], data);
     }
 }
 
