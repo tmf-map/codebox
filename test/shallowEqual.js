@@ -66,12 +66,14 @@ test('Map', t => {
     const e = new Map([[{a: 'e'}, 123],['test', null]]);
     const f = new Map([['a', 123],['test', null]]);
     const g = new Map([['a', 123],['test', null]]);
+    const h = new Map([['a', 123]]);
     t.false(shallowEqual(a, b));
     t.false(shallowEqual(a, c));
     // Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。
     // 0和-0等，NaN和NaN等，===与Object.is的结合
     t.false(shallowEqual(d, e));
     t.true(shallowEqual(f, g));
+    t.false(shallowEqual(g, h));
 });
 test('Array', t => {
     const a = ['a', 1, null, undefined, {a: 'b', b: {c: [1,2,3]}}, new Set(), new Map()];
