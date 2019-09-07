@@ -6,6 +6,8 @@ function deepEqual(a, b) {
     // 三等判断出是false，只要其中一个是原始类型，那这个false是有效的
     // ps：如果a,b都是函数的话统统不等，lodash是这个效果
     if (typeof a !== 'object' || typeof b !== 'object') return false;
+
+    // 当a和b中一个是object,另一个是null
     if (a === null || b === null) return false;
 
     // 相同类的实例才继续，否则就没必要比了
