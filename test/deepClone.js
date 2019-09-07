@@ -96,6 +96,14 @@ test('input Map', t => {
   t.false(m2.has(key));
   t.deepEqual([...m1], [...m2]);
 });
+test('Circular reference', t => {
+  let obj = {
+    a: 1,
+    b: 'string',
+  };
+  obj.c = obj;
+  t.deepEqual(deepClone(obj), obj)
+});
 test.skip('input WeakMap', t => {
   let wm1 = new WeakMap();
   let key = {p: 'Hello World'};

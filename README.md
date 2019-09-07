@@ -12,8 +12,9 @@
 * [x] deepEqual
 * [x] get
 * [x] getOr
-* [ ] shallowEqual
+* [x] shallowEqual
 * [ ] shallowFroze
+* [ ] deepFroze
 * [ ] memoize
 * [ ] getType
 * [ ] isTypeOf
@@ -25,3 +26,7 @@
 * [ ] uniqueBy
 * [ ] applyMiddleware
 * [ ] compose
+* [ ] Object.create
+* [ ] Object.assign
+* [ ] sort
+* [ ] insert/splice

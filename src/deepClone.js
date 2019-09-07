@@ -1,4 +1,4 @@
-function deepClone(obj) {
+function deepClone(obj, hash = new WeakMap()) {
   // Primitive Type
   if (typeof obj !== 'object' || obj === null) {
     return obj;
@@ -23,13 +23,21 @@ function deepClone(obj) {
     obj.forEach((value, key) => objClone.set(deepClone(key), deepClone(value)));
     return objClone
   }
+  // search hash map
+  if(hash.has(obj)) return hash.get(obj);
+
   // Array Object
   const keys = Object.keys(obj);
   let objClone = Array.isArray(obj) ? [] : {};
   if (keys.length < 1) {
     return objClone
   }
-  keys.forEach(key => objClone[key] = deepClone(obj[key]));
+  // add key->value to hash
+  hash.set(obj, objClone);
+
+  keys.forEach(key => {
+    objClone[key] = typeof obj[key] === 'object' ? deepClone(obj[key], hash) : deepClone(obj[key]);
+  });
   return objClone;
 }
 
